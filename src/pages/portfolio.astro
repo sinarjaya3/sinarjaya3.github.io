@@ -1,0 +1,29 @@
+---
+import HalamanAwal from "../layout/halaman-awal.astro";
+import data from "../data/portfolio.yml";
+---
+
+<HalamanAwal link_aktif="portfolio" judul="Portfolio">
+  <div class="prose max-w-full">
+    <table>
+      <thead>
+        <tr>
+          <th>Tahun</th>
+          <th>Klien</th>
+          <th>Tasks</th>
+        </tr>
+      </thead>
+      <tbody class="hover:[&>*]:bg-gray-100 [&>*]:border-t-2">
+        {
+          data.reverse().map((x) => (
+            <tr>
+              <td>{x.tanggal.getFullYear()}</td>
+              <td>{x.klien}</td>
+              <td>{x.tasks}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</HalamanAwal>
